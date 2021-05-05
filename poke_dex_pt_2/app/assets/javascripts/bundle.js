@@ -90,30 +90,10 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/pokemon_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_POKEMON, receiveAllPokemon, requestAllPokemon */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! exports provided: RECEIVE_ALL_POKEMON, RECEIVE_POKEMON, receiveAllPokemon, receivePokemon, requestAllPokemon, receiveSinglePokemon */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_POKEMON", function() { return RECEIVE_ALL_POKEMON; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllPokemon", function() { return receiveAllPokemon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllPokemon", function() { return requestAllPokemon; });
-/* harmony import */ var _util_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/api_util */ "./frontend/util/api_util.js");
-
-var RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
-var receiveAllPokemon = function receiveAllPokemon(pokemon) {
-  return {
-    type: RECEIVE_ALL_POKEMON,
-    pokemon: pokemon
-  };
-};
-var requestAllPokemon = function requestAllPokemon() {
-  return function (dispatch) {
-    return _util_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllPokemon"]().then(function (pokemon) {
-      return dispatch(receiveAllPokemon(pokemon));
-    });
-  };
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/frontend/actions/pokemon_actions.js: Identifier 'receiveSinglePokemon' has already been declared (24:13)\n\n\u001b[0m \u001b[90m 22 | \u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m receiveSinglePokemon \u001b[33m=\u001b[39m (pokemonId) \u001b[33m=>\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 | \u001b[39m  \u001b[36mreturn\u001b[39m \u001b[33mAPIUtil\u001b[39m\u001b[33m.\u001b[39mfetchPokemon(pokemonId)\u001b[0m\n\u001b[0m \u001b[90m 26 | \u001b[39m    \u001b[33m.\u001b[39mthen(pokemon \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 27 | \u001b[39m      \u001b[36mreturn\u001b[39m dispatch(receiveSinglePokemon(pokemon))\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:748:17)\n    at Object.raiseWithData (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:741:17)\n    at Object.raise (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:735:17)\n    at ScopeHandler.checkRedeclarationInScope (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:4915:12)\n    at ScopeHandler.declareName (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:4881:12)\n    at Object.checkLVal (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:9562:24)\n    at Object.parseVarId (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:12338:10)\n    at Object.parseVar (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:12313:12)\n    at Object.parseVarStatement (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:12125:10)\n    at Object.parseStatementContent (/home/chris/appAcademy/aA_classwork/W11D3/poke_dex_pt_2/node_modules/@babel/parser/lib/index.js:11717:21)");
 
 /***/ }),
 
@@ -413,6 +393,7 @@ var pokemonReducer = function pokemonReducer() {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POKEMON"]:
       return Object.assign({}, action.pokemon, state);
 
+    case RECEIVE_SINGLE_POKEMON:
     default:
       return state;
   }
@@ -483,25 +464,6 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
-
-/***/ }),
-
-/***/ "./frontend/util/api_util.js":
-/*!***********************************!*\
-  !*** ./frontend/util/api_util.js ***!
-  \***********************************/
-/*! exports provided: fetchAllPokemon */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllPokemon", function() { return fetchAllPokemon; });
-var fetchAllPokemon = function fetchAllPokemon() {
-  return $.ajax({
-    method: "GET",
-    url: "/api/pokemon"
-  });
-};
 
 /***/ }),
 
