@@ -8,9 +8,9 @@ export const receiveAllItems = (items) => ({
 }); 
 
 export const requestAllItems = (pokemonId) => (dispatch) => {
-    return APIUtil.fetchAllItems(pokemonId)
-        .then( items => {
-            return dispatch(receiveAllItems(items));
+    return APIUtil.fetchSinglePokemon(pokemonId)
+        .then( pokemon => {
+            return dispatch(receiveAllItems(pokemon.items));
         })
 }
 
